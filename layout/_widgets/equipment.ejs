@@ -1,0 +1,19 @@
+<div class="equipment">
+    <% if (site.data.equipment) { %>
+        <% for (let i in site.data.equipment) { %>
+            <div class="equipment-item">
+                <div class="equipment-item-cover">
+                    <img class="equipment-item-cover-image" src="<%= site.data.equipment[i].image %>" alt="<%= site.data.equipment[i].name %>">
+                </div>
+                <div class="equipment-item-description">
+                    <h2 class="equipment-item-name"><%= i %></h2>
+                    <div class="equipment-item-specification"><%= site.data.equipment[i].specification %></div>
+                    <div class="equipment-item-info"><%= site.data.equipment[i].info %></div>
+                    <% if (site.data.equipment[i].link) { %>
+                        <a class="equipment-item-link" href="<%= site.data.equipment[i].link %>" target="_blank">详情</a>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>

@@ -1,0 +1,14 @@
+
+<div class="category-container shadow-none hover:shadow-none sm:shadow-redefine sm:hover:shadow-redefine-hover">
+
+    <div class="category-name">
+        <i class="fa-solid fa-folder"></i>&nbsp;<%= page.category %>
+    </div>
+    <div class="category-post-list">
+        <%- partial('_widgets/archive-list', {posts_new: page.posts}) %>
+    </div>
+</div>
+<div class="category-paginator">
+    <%- partial('_widgets/paginator', {pageObject: page}) %>
+</div>
+

@@ -1,0 +1,18 @@
+<%
+// Define an array of images to display in the masonry layout
+const images = theme.masonry;
+%>
+
+<!--style="height: 33vh 用来占位，当图片加载完成后会被删除，否则Swup页内切换会将图片高度识别为0，懒加载失效-->
+<div id="masonry-container">
+    <% images.forEach(function(image) { %>
+      <div class="masonry-item">
+        <div class="image-container">
+            <img src="/assets/loading.png" data-src="<%- image.image %>" alt="<%- image.title %>" style="height: 33vh"> 
+            <div class="image-title"><%- image.title %></div>
+            <div class="image-description"><%- image.description %></div>
+        </div>
+      </div>
+    <% }); %>
+</div>
+

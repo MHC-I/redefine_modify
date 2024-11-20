@@ -1,0 +1,43 @@
+<div id="about-page" class="about-page">
+    <% const authorinfo = site.data.about.authorinfo; %>
+    <div class="author-info">
+        <div class="author-tag-left">
+            <% authorinfo.leftTags.forEach(tag => { %>
+            <span class="author-tag"><%= tag %></span>
+            <% }); %>
+        </div>
+        <div class="author-img">
+            <img src="<%= authorinfo.image %>" >
+        </div>
+        <div class="author-tag-right">
+            <% authorinfo.rightTags.forEach(tag => { %>
+            <span class="author-tag"><%= tag %></span>
+            <% }); %>
+        </div>
+    </div>
+    <div class="author-title"><%= authorinfo.name %></div>
+    <div class="author-contact">
+        <% for (let i in theme.home.sidebar.links) { %>
+            <% if (theme.home.sidebar.links[i].path === 'none') {} else {%>
+                <% if (theme.home.sidebar.links[i].qr) { %>
+                    <a class="social-contact-item">
+                        <% if (theme.home.sidebar.links[i].icon) { %>
+                            <i class="<%- theme.home.sidebar.links[i].icon %> icon-space"></i>
+                        <% } %>
+                        <span class="link-name"><%= __(i) %></span>
+                        <div class="social-qr-container">
+                            <img class="social-contacts-qr" src="<%- url_for(theme.home.sidebar.links[i].qr) %>"/>
+                        </div>
+                    </a>
+                <% } else {%>
+                    <a class="social-contact-item" href="<%= url_for(theme.home.sidebar.links[i].path) %>">
+                        <% if (theme.home.sidebar.links[i].icon) { %>
+                            <i class="<%- theme.home.sidebar.links[i].icon %> icon-space"></i>
+                        <% } %>
+                        <span class="link-name"><%= __(i) %></span>
+                    </a>
+                <% } %>
+            <% } %>
+        <% } %>
+    </div>
+</div>

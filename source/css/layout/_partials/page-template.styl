@@ -1,0 +1,472 @@
+$friend-link-item-height = 82px
+$friend-link-item-height-tablet = 68px
+$friend-link-item-interval = 16px
+$friend-link-item-border-radius = 9px
+
+@import '../../common/variables'
+
+/* 浮动效果 */
+@keyframes floating
+  0%
+    transform translate(0, -4px)
+  50%
+    transform translate(0, 4px)
+  100%
+    transform translate(0, -4px)
+
+.page-template-container
+  redefine-container(
+    false,
+    0,
+    0,
+    30px,
+    30px
+  )
+
+  +redefine-mobile()
+    padding 1.2rem 0.2rem
+    box-shadow none
+
+    &:hover
+      box-shadow none
+
+  .page-template-content
+    color var(--default-text-color)
+
+    h1, h2, h3, h4, h5, h6
+      &:first-child
+        margin 6px 0 36px 0
+        border-bottom none
+        line-height 1
+
+/* 豆瓣部分 */
+    .idouban-tabs
+      .idouban-tab
+        color var(--second-text-color)
+        cursor pointer
+        font-family $default-font-family
+        margin 0px 10px 5px 10px
+        padding 8px
+
+        &:hover
+          color var(--primary-color)
+          background-color var(--second-background-color)
+      
+      .idouban-tab-active
+        color var(--primary-color) !important
+        border-bottom: 2px solid
+        background-color transparent
+
+    .idouban-item
+      margin-top 20px
+      border-radius $redefine-border-radius-small
+      border-bottom 0px !important
+      box-shadow: var(--redefine-box-shadow-flat)
+
+      &:hover
+        box-shadow var(--redefine-box-shadow)
+        transform scale(1.01)
+        transition all 0.3s ease
+
+      .idouban-picture
+        position:absolute
+        left: 10px
+        top: -5px
+
+
+      .idouban-info
+        position: absolute
+        padding-top:10px
+        top:5px
+      .idouban-info a
+        text-decoration:none
+        display: -webkit-box
+        -webkit-box-orient: vertical
+        -webkit-line-clamp: 1
+        overflow: hidden
+        
+
+
+  #shuoshuo-content
+    img:hover
+      cursor zoom-in
+
+
+  #masonry-container
+    position relative
+    transition opacity 0.1s ease-in
+    height 100vh
+
+    .masonry-item
+      position absolute
+      box-sizing border-box
+
+      &:hover
+        img
+          box-shadow var(--redefine-box-shadow)
+
+      img
+        width 100%
+        border-radius $redefine-border-radius-medium
+        box-shadow var(--redefine-box-shadow-flat)
+        cursor zoom-in
+
+  /* Images */
+  .image-container
+    position relative
+
+  .image-title
+    position absolute
+    top 5px
+    left 5px
+    color var(--default-text-color)
+    background-color var(--background-color-transparent-40)
+    padding 5px 10px
+    font-size 14px
+    opacity 0
+    backdrop-filter blur(10px)
+    -webkit-backdrop-filter blur(10px)
+    border-radius $redefine-border-radius-small
+    transition opacity 0.2s ease-out
+
+  .image-description
+    position absolute
+    bottom 11px
+    right 5px
+    color var(--default-text-color)
+    background-color var(--background-color-transparent-40)
+    padding 5px 10px
+    font-size 14px
+    opacity 0
+    max-width 80%
+    backdrop-filter blur(10px)
+    -webkit-backdrop-filter blur(10px)
+    border-radius $redefine-border-radius-small
+    transition opacity 0.2s ease-out
+
+  figure.image-caption
+    img
+      margin-bottom 0
+
+    figcaption
+      margin-top 5px
+      margin-bottom 10px
+      text-align center
+      font-size 0.9rem
+      color var(--third-text-color)
+
+  .image-container:hover .image-title, .image-container:hover .image-description
+    opacity 1
+
+  .image-container img
+    width 100%
+    height auto
+    transition box-shadow 0.3s ease-in-out
+    overflow hidden
+
+  .image-container:hover img
+    box-shadow var(--redefine-box-shadow-hover)
+
+/* 我的装备部分 */
+  .equipment
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    margin: 0 -16px
+
+    h2.equipment-item-title
+      line-height:1
+
+    .equipment-item
+      width: calc(33.33% - 24px)
+      border-radius: 12px
+      border: 4px
+      overflow: hidden
+      margin: 16px 12px
+      min-height: 350px
+      position: relative
+      box-shadow: var(--redefine-box-shadow-flat)
+
+      &:hover
+        box-shadow var(--redefine-box-shadow)
+        transform scale(1.02)
+        transition all 0.3s ease
+
+      +redefine-tablet()
+        width: calc(50% - 24px)
+
+      +redefine-mobile()
+        width: calc(100% - 24px)
+
+
+    
+    .equipment-item-cover
+      width: 100%
+      height: 200px
+      display: flex
+      justify-content: center
+      background: var(--third-background-color)
+    
+    img.equipment-item-image
+      object-fit: cover;
+      height: 100%;
+
+
+    .equipment-item-description
+      padding: 20px
+
+      .equipment-item-name
+        font-size: 18px
+        font-weight: bold
+        line-height: 1
+        margin-bottom: 8px
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        width: fit-content
+
+      .equipment-item-specification
+        font-size: 12px
+        color: var(--third-text-color)
+        line-height: 1
+        margin-bottom: 12px
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+      
+      .equipment-item-info
+        line-height: 20px
+        color: var(--third-text-color)
+        height: 60px
+        display: -webkit-box
+        overflow: hidden
+        -webkit-line-clamp: 3
+        -webkit-box-orient: vertical
+        font-size: 14px
+      
+      a.equipment-item-link 
+        font-size: 12px
+        padding: 4px 8px
+        border-radius: 8px
+        cursor: pointer
+        color: var(--third-text-color)
+        background: var(--third-background-color)
+
+      a.equipment-item-link:hover
+        color: white
+        background: var(--primary-color)
+
+/* about 部分 */
+  .about-page 
+    display: flex
+    padding-top: 1rem
+    flex-direction: column
+    align-items: center
+
+/* 作者信息 */
+    .author-info
+      display: flex
+      align-items: center
+      margin: 0 0 16px 0
+
+    .author-tag-left
+      display: flex;
+      flex-direction: column
+      align-items: flex-end
+
+      .author-tag:first-child, .author-tag:last-child
+        margin-right: -16px
+      
+      +redefine-tablet()
+        display: none
+
+      +redefine-mobile()
+        display: none
+
+    .author-tag-right
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      
+      .author-tag:first-child, .author-tag:last-child
+        margin-left: -16px
+
+      +redefine-tablet()
+        display: none
+
+      +redefine-mobile()
+        display: none
+
+    .author-tag
+      transform: translate(0, -4px)
+      padding: 1px 8px
+      border-color: var(--border-color)
+      border-radius: 40px
+      margin-top: 6px
+      font-size: 14px
+      font-weight: bold
+      box-shadow: var(--redefine-box-shadow-flat)
+      animation: 6s ease-in-out 0s infinite normal none running floating
+
+    .author-tag:nth-child(1)
+      animation-delay: 0s
+
+    .author-tag:nth-child(2)
+      animation-delay: 0.6s
+
+    .author-tag:nth-child(3)
+      animation-delay: 1.2s
+
+    .author-tag:nth-child(4)
+      animation-delay: 1.8s
+
+    .author-img
+      margin: 0 30px
+      border-radius: 50%
+      width: 180px
+      height: 180px
+      position: relative
+      background: var(--second-background-color)
+      box-shadow: var(--redefine-box-shadow-flat)
+      transition:  0.3s
+
+      +redefine-tablet()
+        width: 120px
+        height: 120px
+
+      +redefine-mobile()
+        width: 120px
+        height: 120px
+    
+      &:hover
+        box-shadow var(--redefine-box-shadow)
+        transform scale(1.03)
+        transition all 0.5s ease
+
+    .author-img img
+      border-radius: 200px
+
+    .author-img::after
+      content: ''
+      transition: 1s
+      width: 30px
+      height: 30px
+      background: var(--primary-color)
+      position: absolute
+      border-radius: 50%
+      border: 5px solid var(--background-color)
+      bottom: 5px
+      right: 10px
+      z-index: 2
+    
+      +redefine-tablet()
+        bottom: -5px
+        right: -5px
+
+      +redefine-mobile()
+        bottom: -5px
+        right: -5px
+
+    .author-title
+      font-size: 2rem
+      font-weight: bold
+      margin: 1rem 0
+      line-height: 1
+
+/* 联系方式链接 */
+    .author-contact
+      display flex
+      margin 4px
+      flex-wrap: wrap
+      justify-content: center
+
+      .social-contact-item
+        display flex
+        justify-content: center
+        align-items: center
+        margin 4px
+        position: relative
+        border-radius $redefine-border-radius-small
+        padding 5px
+        box-shadow: var(--redefine-box-shadow-flat)  
+
+        .social-qr-container
+          position: absolute
+          left: 50%
+          bottom 0
+          transform: translate(-50%,100%)
+          display: none
+          width 100px
+
+          
+      .social-contact-item:hover
+        color var(--primary-color)
+        box-shadow: var(--redefine-box-shadow)
+        .social-qr-container
+          display: block
+
+/* 友链页面 */
+
+  .friends-link-container
+    display flex
+    flex-direction: column
+    .friends-link-group
+      display: flex
+      flex-wrap: wrap
+      .friends-link-item
+        margin 10px
+        box-shadow: var(--redefine-box-shadow-flat)
+        border-radius $redefine-border-radius-small
+        display: flex
+        width: calc(20% - 20px)
+        height 40px
+        
+        +redefine-tablet()
+          width: calc(33.33% - 20px)
+
+        +redefine-mobile()
+          width: calc(50% - 12px)
+          margin 6px
+
+        &:hover
+          box-shadow var(--redefine-box-shadow)
+          transform scale(1.01)
+          transition all 0.3s ease
+
+
+
+        .avatar
+          width:40px
+          height:40px
+          padding 8px
+          align-items: center
+          object-fit: cover
+          object-position: center
+          border-top-left-radius $redefine-border-radius-small
+          border-bottom-left-radius $redefine-border-radius-small
+          background var(--third-background-color)
+        
+        .avatar-text
+          width:40px
+          height:40px
+          border-top-left-radius $redefine-border-radius-small
+          border-bottom-left-radius $redefine-border-radius-small
+          background var(--third-background-color)
+          font-size: 1.4rem
+          line-height: 40px
+          text-align: center
+          color var(--first-text-color)
+
+        .name
+          font-size: 0.9rem
+          line-height: 40px
+          display: -webkit-box
+          -webkit-box-orient: vertical
+          -webkit-line-clamp: 1
+          overflow: hidden
+          margin-left 6px
+
+
+      
+
+

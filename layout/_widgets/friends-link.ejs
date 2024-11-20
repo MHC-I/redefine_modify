@@ -1,0 +1,19 @@
+<div class="friends-link-container">
+    <% for (const category of theme.links) { %>
+        <div class="mt-2 mb-4">
+            <h2 class="text-2xl font-bold"><%= category.links_category %></h2>
+        </div>
+        <div class="friends-link-group">
+            <% for (const f of category.list) { %>
+                    <a class="friends-link-item" href="<%= f.link %>" >
+                        <% if (f.avatar) { %>
+                            <img class="avatar" src="<%= f.avatar %>">
+                        <% } else { %>
+                            <div class="avatar-text"><%= f.name[0] %></div>
+                        <% } %>
+                        <div class="name"><%= f.name %></div>
+                    </a>
+            <% } %>
+        </div>
+    <% } %>
+</div>
